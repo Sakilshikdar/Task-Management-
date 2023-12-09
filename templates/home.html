@@ -4,16 +4,30 @@
   <div class="col-sm-3">
     <div class="card mx-2">
       <div class="card-body">
-        <h5 class="card-title">{{post.id}}</h5>
-        <p class="card-text">{{post.taskAssignDate}}</p>
-        <p>{{post.taskDescription}}</p>
+        <h5 class="card-title">Task id: {{post.id}}</h5>
+        <p class="card-text">
+          <span class="fw-bold">Task Assiged Date:</span>
+          {{post.taskAssignDate}}
+        </p>
         <p>
-          category: {% for cat in category %}
+          <span class="fw-bold">Task Title:</span>
+          {{post.taskTitle }}
+        </p>
+        <p>
+          <span class="fw-bold">Task Description:</span>
+          {{post.taskDescription}}
+        </p>
+        <p>
+          <span class="fw-bold">category:</span> {% for cat in category %}
           <button class="btn btn-info btn-sm mt-2">{{cat.categoryName}}</button>
           {% endfor %}
         </p>
         {% if post.is_completed %}
-        <a href="" class="btn btn-primary disabled">Completed</a>
+        <a
+          href=""
+          class="btn btn-primary disabled d-flex justify-content-center"
+          >Completed</a
+        >
         {% else %}
         <div>
           <a href="{% url 'edit_post' post.id %}" class="btn btn-primary"
